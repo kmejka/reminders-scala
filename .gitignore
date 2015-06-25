@@ -1,0 +1,24 @@
+# IDEA
+*.iml
+.idea/
+
+# NetBeans
+nb-configuration.xml
+
+# Eclipse related ignores
+.classpath
+.project
+.settings/
+
+# maven related ignore rules
+*target/
+pom.xml.versionsBackup
+dependency-reduced-pom.xml
+
+atlassian-ide-plugin.xml
+
+# Importer data
+**/data/*_full.xml
+
+# Java heap dump
+hs_err*
