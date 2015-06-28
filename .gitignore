@@ -22,3 +22,6 @@ atlassian-ide-plugin.xml
 
 # Java heap dump
 hs_err*
+
+# Scala worksheets
+*.sc
