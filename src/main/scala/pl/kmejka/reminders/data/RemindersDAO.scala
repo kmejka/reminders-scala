@@ -1,8 +1,22 @@
 package pl.kmejka.reminders.data
 
-class RemindersDAO {
+import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
 
-  def saveReminder() = ???
+import com.typesafe.scalalogging.LazyLogging
+import pl.kmejka.reminders.model.Reminder
+
+class RemindersDAO extends LazyLogging {
+
+  val dataStore: ConcurrentHashMap[String, Reminder] = new ConcurrentHashMap[String, Reminder]()
+
+  def saveReminder(reminder: Reminder): String = {
+    logger.info(s"Saving reminder object $reminder")
+    val uuid: String = UUID.randomUUID.toString
+    dataStore.putIfAbsent(uuid, reminder)
+    logger.debug(s"Data store contents after saving new reminder object: $dataStore")
+    uuid
+  }
   def getReminder() = ???
   def getAllReminders() = ???
   def getRemindersForUser() = ???
